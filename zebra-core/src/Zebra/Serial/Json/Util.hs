@@ -40,8 +40,8 @@ module Zebra.Serial.Json.Util (
 import           Data.Aeson ((.=), (.:), (.:?))
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Encode.Pretty as Aeson
-import           Data.Aeson.Internal ((<?>))
-import qualified Data.Aeson.Internal as Aeson
+import           Data.Aeson ((<?>))
+import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Parser as Aeson
 import qualified Data.Aeson.Types as Aeson
 import           Data.ByteString (ByteString)

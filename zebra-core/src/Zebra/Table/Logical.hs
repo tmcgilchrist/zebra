@@ -67,7 +67,8 @@ import qualified Data.Text as Text
 import qualified Data.Vector as Boxed
 
 import           GHC.Generics (Generic)
-import           GHC.Prim ((>#), tagToEnum#, dataToTag#)
+import           GHC.Prim ((>#), tagToEnum#)
+import           GHC.Magic (DataToTag(..), dataToTag#)
 
 import           P hiding (empty, some, length)
 
@@ -556,7 +557,7 @@ instance Ord Value where
         compareTag (Reversed x) y
   {-# INLINABLE compare #-}
 
-compareTag :: a -> a -> Ordering
+compareTag :: GHC.Magic.DataToTag a => a -> a -> Ordering
 compareTag x y =
   if tagToEnum# (dataToTag# x ># dataToTag# y) then
     GT
